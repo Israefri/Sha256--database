@@ -7,7 +7,6 @@ for filename in os.listdir(path_of_the_directory):
     if os.path.isfile(f):
         with open(os.path.join('Q2', filename), 'r') as f:
             while True:
-                flag = False
                 text = f.readline()
                 password = f"{text.strip()}{filename}"
                 num, clean = password.split('_', 1)
@@ -16,7 +15,6 @@ for filename in os.listdir(path_of_the_directory):
                         hashed = hashlib.sha256(clean.encode('utf-8')).hexdigest()
                         clean = hashed
                         if hashed == data:
-                            flag = True
                             print(f"the password is: {password}")
                             break
                         if not text:
